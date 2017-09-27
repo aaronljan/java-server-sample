@@ -9,14 +9,17 @@ public class Server {
         System.out.println("Hello World!");
 
         int portNumber = 9000;
+
         try {
             ServerSocket serverSocket = new ServerSocket(portNumber);
-            Socket socket = serverSocket.accept();
-            PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-            out.println(new Date().toString());
-
+            
+            while (true) {
+                Socket socket = serverSocket.accept();
+                PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+                out.println(new Date().toString());
+            }
         } catch (Exception e) {
-
+            System.out.println(e.getMessage());
         } finally {
 
         }

@@ -6,7 +6,7 @@ import java.net.Socket;
 
 public class Client {
     public static void main(String[] args) throws IOException {
-        String serverAddress = JOptionPane.showInputDialog("Here");
+        String serverAddress = JOptionPane.showInputDialog("Here"); // "localhost"
         Socket s = new Socket(serverAddress, 9000);
         BufferedReader input = new BufferedReader(new InputStreamReader(s.getInputStream()));
         String ans = input.readLine();
